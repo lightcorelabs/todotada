@@ -61,6 +61,7 @@ To solve for the objectives, the goal is to build a full-stack codebase that dem
 
 # General Installation Steps
 The order of the steps below follow the agile premise demonstrated in the Vidtorial and are not necessarily the most optimial sequence for a fully pre-designed application.
+
 * Deploy FusionAuth (or any other asymmetric JWT provider)
  * Launch VM (link for auto-deploy at Azure in /docs, soon)
  * Configure domain name (details coming to /docs, soon)
