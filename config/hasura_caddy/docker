@@ -1,0 +1,42 @@
+version: '3.6'
+services:
+  postgres:
+    image: postgres:10.5
+    restart: always
+    volumes:
+    - db_data:/var/lib/postgresql/data
+  graphql-engine:
+    image: hasura/graphql-engine:v1.0.0-beta.5
+    depends_on:
+    - "postgres"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:@postgres:5432/postgres # database url to connect
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set "false" to disable console
+      HASURA_GRAPHQL_ADMIN_SECRET: ${env_admin_secret} # secures entire API and console; must set
+      HASURA_GRAPHQL_SERVER_PORT: 8080
+      HASURA_GRAPHQL_SERVER_HOST: "*"
+      HASURA_GRAPHQL_JWT_SECRET: {} # required to integrate with JWT Server
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: "anon" # Role that is allowed to hit api without JWT token
+      HASURA_GRAPHQL_ENABLE_TELEMETRY: "false" # Sends anonymous stats back to Hasura; our scale and security teams say no
+      HASURA_GRAPHQL_TX_ISOLATION: "read-commited" # https://www.postgresql.org/docs/10/transaction-iso.html
+      HASURA_GRAPHQL_ENABLE_ALLOWLIST: "false" # changed to true in production
+      # HASURA_GRAPHQL_CONSOLE_ASSETS_DIR: "/srv/console-assets" # localize assets vs using CDN
+      HASURA_GRAPHQL_LOG_LEVEL: "debug" # Default: info. Options: debug, info, warn, error
+    command:
+    - graphql-engine 
+    - serve
+  caddy:
+    image: abiosoft/caddy:0.11.0
+    depends_on:
+    - "graphql-engine"
+    restart: always
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+    - ./Caddyfile:/etc/Caddyfile
+    - caddy_certs:/root/.caddy
+volumes:
+  db_data:
+  caddy_certs:
