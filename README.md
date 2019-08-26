@@ -58,3 +58,124 @@ To solve for the objectives, the goal is to build a full-stack codebase that dem
     * Notify as offline at the App Splash-Screen
     * Displaying retry timer
     * Retry now button to override retry timer
+
+# General Installation Steps
+The order of the steps below follow the agile premise demonstrated in the Vidtorial and are not necessarily the most optimial sequence for a fully pre-designed application.
+* Deploy FusionAuth (or any other asymmetric JWT provider)
+ * Launch VM (link for auto-deploy at Azure in /docs, soon)
+ * Configure domain name (details coming to /docs, soon)
+ * Open ports:
+   * 80 - for letsencrypt challenge only
+   * 443 - for all public access
+   * 22 - for internal access only
+ * Configure Environment file (details coming to /docs, soon)
+ * Run auto-install script in /docs (soon) which does:
+  * docker, docker-compose install
+  * Configures .yaml and runs docker-compose
+  * Install nginx
+  * Install and run letsencrypt
+  * Configure nginx proxy to FusionAuth
+ * Close port 80
+ * Login to FusionAuth and configure (/docs, soon)
+* Deploy Hasura+Caddy
+ * Launch VM (Azure link, soon)
+ * Configure domain name (soon)
+ * Open ports:
+  * 80 - for letsencrypt challenge only
+  * 443 - for all public access
+  * 22 - for internal access only
+ * Configure Environment file (/docs, soon)
+ * Run auto-install script in /docs (soon) which does:
+  * docker, docker-compose install
+  * Configures .yaml and runs docker-compose
+ * Close port 80
+ * Login to Hasura console with admin key
+* Hasura: Create add basic tables and function for anonymous access from Flutter app to test connectivity
+ * Create a protected app table (/docs/vidtorial, coming soon)
+ * Create a public query results table
+ * Create a public app_version_check function
+ * Insert one row
+ * Test query to function by "anon"
+* Flutter: Create intial app
+ * Create a device-level splash screen
+ * Create an app-level splash screen
+ * Integrate GraphQL subscription to check for connectivity to server
+ * Create an online view placeholder
+ * Create an offline view with retry logic
+* Hasura: Create ToDo tables for persistence (protected) and query results (public)
+* Hasura: Create aggregate function for general statistics (public)
+* Flutter: Implement subscription to aggregate function
+ * Create class for aggregate view
+ * Create subscription to aggregate view
+* Flutter: Create anonymous online view of aggregate view
+ * Sign-In link
+ * Disparate colour scheme
+ * Display of subscribed general aggregate data
+* FusionAuth: Create initial users
+ * user1 (role: app_admin) - don't give system admin privleges, it's just a different user type
+ * user2 (role: user)
+ * user3 (role: user)
+* Flutter: Create Sign-In flow to FusionAuth
+* Flutter: Create User Profile page
+ * List JWT token data (roles, name, user-id)
+ * Sign-out functionality
+* Flutter: Create User online view of aggregate view
+ * Access to profile view
+ * Colour scheme variance from anon
+ * Display of subscribed general aggregate data
+* Flutter: Create Admin online view of aggregate view
+ * Access to profile view
+ * Colour scheme variance from anon and user
+ * Display of subscribed general aggregate data
+* Flutter: Create placeholder pages for User features
+ * My ToDo's
+ * Available ToDo's
+* Flutter: Create placeholder pages for Admin features
+ * ToDo's
+ * Announcments
+* Flutter: Create user and admin navigation tabs
+ * User: My ToDo's, Available ToDo's, Main Stats(original aggregate view)
+ * Admin: ToDo's, Announcments, Main Stats(original aggregate view)
+* Hasura: Create Announcments tables for persistence and query results
+ * Create function to return announcements based on the JWT-role and JWT-date without author_id or roles
+ * Populate an announcement for the Anon role
+* Flutter: Implement subscription to announcment function
+ * Create class for announcments (w/ nullable author, roles)
+ * Create subscription to role_based annoucnments function
+ * Create logic to show announcments only once based on local state
+ * Test anon, user, admin announcment combinations with manually populated announcments in Hasura
+* Hasura: Create admin functions for announcments
+ * Create function to list all announcemnts including author_id and roles
+ * Create function to add a new announcement locked to 
+* Flutter: Improve Admin Announcments fuctionality
+ * Create new subscription to all announcments
+ * Create mutation function to insert new announcement
+ * Update the Admin's Announcments page to display all announcements history
+ * Add modal page to capture new announcment in a form
+ * Add an action button to the Admin's announcments page to access new announcment form
+ * Test Announcement creation
+* Hasura: Create ToDo tables for persistence and query results
+ * Create function to return ToDo's to JWT-roles: app_admin
+ * Create function to return ToDo's to a specific user_id flagged with "available" or "claimed"
+ * Create function to return a specific ToDo
+ * Create function to return aggregated statistics specific to a user_id
+ * Create function to return a specific user's aggregated status
+ * Populate a ToDo manually
+* Flutter: Implement ToDo functionality into app
+ * Create classes for ToDo list, ToDo item, User statistics, User status
+ * Create subscription code to ToDo list (user, flag: available|claimed)
+ * Create subscription code to ToDo item
+ * Create subscription code to User statistics
+ * Create subscription code to User status
+ * Create mutation function to Insert a ToDo item
+ * Create mutation function to Update (claim) a ToDo
+ * Create mutation function to Update (complete) a ToDo
+ * Update the User Available ToDo's page to subscribe to all ToDo's within "available" constraints for the user
+ * Add a modal page to show an unclaimed ToDo to a user, with an action to triger the claim_todo function
+ * Add a modal page to show a claimed ToDo to a user, with an action to trigger the claim_complete function
+ * Update the User My ToDo's page to subscribe to all ToDo's withing "claimed" constraints for the user.
+ * Add a modal page to capture new ToDo from in a form
+ * Update Admin ToDo's page to display all ToDo's available to admin_role
+ * Add an action button to the Admin ToDo's page to access new ToDo form
+ * Test ToDo creation
+ * Create widget in app bar for a user that subscribes to and indicates the User status (green, amber, red)
