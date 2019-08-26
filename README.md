@@ -180,3 +180,6 @@ The order of the steps below follow the agile premise demonstrated in the Vidtor
   * Add an action button to the Admin ToDo's page to access new ToDo form
   * Test ToDo creation
   * Create widget in app bar for a user that subscribes to and indicates the User status (green, amber, red)
+
+# ARCHITECTURE & DESIGN
+![Architecture](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/ToDoApp%20-%20Architecture.png)
