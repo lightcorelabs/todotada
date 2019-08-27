@@ -1,3 +1,5 @@
+# **WORK IN PROGRESS**
+
 # ToDoTaDa
 A vidtorial and codebase for a full-stack Flutter (UX) + Hasura (GraphQL) + FusionAuth (JWT) real-time "Competitive ToDo" app implementing a one-way data flow architecture (similar to Flux, React, Redux, etc, as opposed to MVC and unidirectional).
 
