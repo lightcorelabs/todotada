@@ -208,7 +208,7 @@ Splash
 ---
 
 Offline View
-![Offline View](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/OFFLINE%20VIEW)
+![Offline View](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/OFFLINE%20VIEW.png)
 
 ---
 
