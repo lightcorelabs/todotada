@@ -3,6 +3,15 @@ A vidtorial and codebase for a full-stack Flutter (UX) + Hasura (GraphQL) + Fusi
 
 This repo, and accompanying Vidtorial, demonstrates the complete configuration, build, design, and deployment of a real-time Competitive ToDo app.
 
+---
+**Table of Contents**
+1. [General Problem](#general-problem)
+1. [Premise of Solution](#premise-of-solution)
+1. [General Installation Steps](#installation-steps-summary)
+1. [Summary of Development](#development-summary)
+1. [Architecture & Design](#architecture--design)
+---
+
 ## General Problem
 ToDo app examples today suck at bringing out the real-time nature/value that we've been evaluating in our latest projects.  So we end up trying a plaform or component down to the point where we discover it doesn't really work for anything much better than a blog.  We don't want another wordpress solution, and we don't want to build our own.  So we believe that we've come up with a good componentized open source stack that we can demonstrate the core objectives of our most complex projects to ourselves, but demonstrated as a simple ToDo app.  A simple as possible, but not any simpler, of course.
 
@@ -17,7 +26,7 @@ The limitations we've run into are always centred around one or more of the foll
   * We don't want diverse teams working on diverse codebases with diverse functionalities
   * Flutter, with their announcement of commitment to Hummingbird, this is now a reality
 
-## General Premise
+## Premise of Solution
 ToDoTaDa is an interactive platform that allows admin users to create todos for registered users to compete with each other to finish first and on-time.  The Admin user sets the datetime of when the todo needs to be completed by (todo expires), how many concurrent users can claim the todo to work on (concurrent competitors), and how long a user actually has to complete the work once claimed (claim expires).  A user will have one way to "succeed" at a todo (i.e. claim it and complete it before either time runs out or another user completes it), but several ways to "fail" at a todo (i.e. the todo expires, the claim expires, or another user completes the todo within the constraints).  Statistics will be available generally to any user of the app, including anonymous users.  But more advanced user and todo specific statistics will be available to users and admins, respectively.  Finally, a notification layer will overlay the UX that allows Admin users to send a pop-up message to any or all user groups, including Anon, User, and Admin.
 
 This will demonstrate the following key objectives, which are all best experienced with "real-time" interactivity:
@@ -59,7 +68,7 @@ To solve for the objectives, the goal is to build a full-stack codebase that dem
     * Displaying retry timer
     * Retry now button to override retry timer
 
-# General Installation Steps
+# Installation Steps Summary
 The order of the steps below follow the agile premise demonstrated in the Vidtorial and are not necessarily the most optimial sequence for a fully pre-designed application.
 
 * Deploy FusionAuth (or any other asymmetric JWT provider)
@@ -91,6 +100,8 @@ The order of the steps below follow the agile premise demonstrated in the Vidtor
     * Configures .yaml and runs docker-compose
   * Close port 80
   * Login to Hasura console with admin key
+
+## Development Summary
 * Hasura: Create add basic tables and function for anonymous access from Flutter app to test connectivity
   * Create a protected app table (/docs/vidtorial, coming soon)
   * Create a public query results table
@@ -181,5 +192,75 @@ The order of the steps below follow the agile premise demonstrated in the Vidtor
   * Test ToDo creation
   * Create widget in app bar for a user that subscribes to and indicates the User status (green, amber, red)
 
-# ARCHITECTURE & DESIGN
+# Architecture & Design
+## General Architecture
 ![Architecture](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/ToDoApp%20-%20Architecture.png)
+
+## Design
+Preload
+![Preload](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/PRELOAD.png)
+
+---
+
+Splash
+![Splash](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/SPLASH.png)
+
+---
+
+Offline View
+![Offline View](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/OFFLINE%20VIEW)
+
+---
+
+Main Stats - Anonymous
+![Main Stats - Anonymous](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/MAIN%20STATS%20-%20ANON.png)
+
+---
+
+Main Stats - User
+![Main Stats - User](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/MAIN%20STATS%20-%20USER.png)
+
+---
+
+Main Stats - Admin
+![Main Stats - Admin](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/MAIN%20STAT%20-%20ADMIN.png)
+
+---
+
+My ToDo's - User
+![My ToDo's - User](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/MY%20TODO'S%20-%20USER.png)
+
+---
+
+Available ToDo's - User
+![Available ToDo's - User](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/AVAILABLE%20TODO'S%20-%20USER.png)
+
+---
+
+ToDo's - Admin
+![ToDo's - Admin](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/TODO'S%20-%20ADMIN.png)
+
+---
+
+Add ToDo - Admin
+![Add ToDo - Admin](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/ADD%20TODO%20-%20ADMIN.png)
+
+---
+
+Claim ToDo - User
+![Claim ToDo - User](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/CLAIM%20TODO%20-%20USER.png)
+
+---
+
+View ToDo - User
+![View ToDo - User](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/VIEW%20TODO%20-%20USER.png)
+
+---
+
+Announcements - Admin
+![Announcements - Admin](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/ANNOUNCEMENTS%20-%20ADMIN.png)
+
+---
+
+Add Announcment - Admin
+![Add Announcment - Admin](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/ADD%20ANCMT-%20ADMIN.png)
