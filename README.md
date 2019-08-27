@@ -13,7 +13,7 @@ This repo, and accompanying Vidtorial, demonstrates the complete configuration, 
 ---
 
 ## General Problem
-ToDo app examples today suck at bringing out the real-time nature/value that we've been evaluating in our latest projects.  So we end up trying a plaform or component down to the point where we discover it doesn't really work for anything much better than a blog.  We don't want another wordpress solution, and we don't want to build our own.  So we believe that we've come up with a good componentized open source stack that we can demonstrate the core objectives of our most complex projects to ourselves, but demonstrated as a simple ToDo app.  A simple as possible, but not any simpler, of course.
+ToDo app examples today struggle to demonstrate the real-time value that we've been evaluating for our latest nextgen projects.  So we end up trying a plaform or component down to the point where we discover it doesn't really work for anything much better than a blog.  We don't want another wordpress solution, and we don't want to build our own.  So we believe that we've come up with a good componentized open source stack that we can demonstrate the core objectives of our most complex projects to ourselves, but demonstrated as a simple ToDo app.  A simple as possible, but not any simpler, of course.
 
 The limitations we've run into are always centred around one or more of the following:
 * User management, and especially migration/integration from/with legacy systems
