@@ -1,5 +1,34 @@
 # **WORK IN PROGRESS**
 
+Status Update
+- [X] Hasura: Create add basic tables and function for anonymous access from Flutter app to test connectivity
+- [X] Flutter: Create intial app
+- [X] Hasura: Create ToDo tables for persistence (protected) and query results (public)
+- [X] Hasura: Create aggregate function for general statistics (public)
+- [ ] Flutter: Implement subscription to aggregate function
+  - [X] Create class for aggregate view
+  - [ ] Create subscription to aggregate view (Query is working in flutter, now adding subscriptions)
+- [ ] Flutter: Create anonymous online view of aggregate view
+  - [X] Sign-In link
+  - [ ] Disparate colour scheme
+  - [X] Display of ~subscribed~ [currently queried] general aggregate data
+- [X] FusionAuth: Create initial users
+- [ ] Flutter: Create Sign-In flow to FusionAuth
+- [ ] Flutter: Create User Profile page
+- [ ] Flutter: Create User online view of aggregate view
+- [ ] Flutter: Create Admin online view of aggregate view
+- [X] Flutter: Create placeholder pages for User features
+- [X] Flutter: Create placeholder pages for Admin features
+- [ ] Flutter: Create user and admin navigation tabs
+- [X] Hasura: Create Announcments tables for persistence and query results
+- [ ] Flutter: Implement subscription to announcment function
+- [X] Hasura: Create admin functions for announcments
+- [ ] Flutter: Improve Admin Announcments fuctionality
+- [X] Hasura: Create ToDo tables for persistence and query results
+- [ ] Flutter: Implement ToDo functionality into app
+
+---
+
 # ToDoTaDa
 A vidtorial and codebase for a full-stack Flutter (UX) + Hasura (GraphQL) + FusionAuth (JWT) real-time "Competitive ToDo" app implementing a one-way data flow architecture (similar to Flux, React, Redux, etc, as opposed to MVC and unidirectional).
 
