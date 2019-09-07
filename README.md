@@ -227,6 +227,8 @@ The order of the steps below follow the agile premise demonstrated in the Vidtor
 ## General Architecture
 ![Architecture](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/ToDoApp%20-%20Architecture.png)
 
+![Blockitecture](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/ToDoApp%20-%20blockitecture.png)
+
 ## Design
 Preload
 ![Preload](https://github.com/lightcorelabs/todotada/raw/master/docs/assets/PRELOAD.png)
