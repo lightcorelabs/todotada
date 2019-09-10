@@ -5,13 +5,13 @@ Status Update
 - [X] Flutter: Create intial app
 - [X] Hasura: Create ToDo tables for persistence (protected) and query results (public)
 - [X] Hasura: Create aggregate function for general statistics (public)
-- [ ] Flutter: Implement subscription to aggregate function
+- [X] Flutter: Implement subscription to aggregate function
   - [X] Create class for aggregate view
-  - [ ] Create subscription to aggregate view (Query is working in flutter, now adding subscriptions)
+  - [X] Create subscription to aggregate view
 - [ ] Flutter: Create anonymous online view of aggregate view
   - [X] Sign-In link
   - [ ] Disparate colour scheme
-  - [X] Display of ~subscribed~ [currently queried] general aggregate data
+  - [X] Display of ~subscribed~ general aggregate data
 - [X] FusionAuth: Create initial users
 - [ ] Flutter: Create Sign-In flow to FusionAuth
 - [ ] Flutter: Create User Profile page
@@ -21,7 +21,7 @@ Status Update
 - [X] Flutter: Create placeholder pages for Admin features
 - [ ] Flutter: Create user and admin navigation tabs
 - [X] Hasura: Create Announcments tables for persistence and query results
-- [ ] Flutter: Implement subscription to announcment function
+- [X] Flutter: Implement subscription to announcment function
 - [X] Hasura: Create admin functions for announcments
 - [ ] Flutter: Improve Admin Announcments fuctionality
 - [X] Hasura: Create ToDo tables for persistence and query results
